@@ -2,18 +2,23 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "org.avium.aviumtool"
-    compileSdk = 35
+    namespace = property.project.android.namespace
+    compileSdk =  property.project.android.compileSdk
 
     defaultConfig {
-        applicationId = "org.avium.aviumtool"
-        minSdk = 33
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = property.project.android.applicationId
+        minSdk = property.project.android.minSdk
+        targetSdk = property.project.android.targetSdk
+        versionCode = property.project.android.versionCode
+        versionName = property.project.android.versionName
+        ndk {
+            // noinspection ChromeOsAbiSupport
+            abiFilters += "arm64-v8a"
+        }
     }
 
     buildTypes {
@@ -28,8 +33,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     androidResources {
@@ -38,7 +43,7 @@ android {
 
     kotlin {
         compilerOptions {
-            jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+            jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
             freeCompilerArgs = listOf(
                 "-Xno-param-assertions", "-Xno-call-assertions", "-Xno-receiver-assertions"
             )
@@ -61,4 +66,11 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose)
+
+    implementation(libs.yukihookapi.api)
+    implementation(libs.kavaref.core)
+    implementation(libs.kavaref.extension)
+    implementation(libs.dexkit)
+    compileOnly(libs.xposed.api)
+    ksp(libs.yukihookapi.ksp.xposed)
 }

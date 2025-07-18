@@ -1,43 +1,53 @@
 <resources>
-    <string name="app_name">AviumTool</string>
-
-    <string name="nav_home">主页</string>
-    <string name="nav_about">关于</string>
+    <string name="app_name" translatable="false">AviumTool</string>
+    <string name="xposed_description">I D K !!!!!!!!!</string>
+    
+    
+    <string name="nav_home">Home</string>
+    <string name="nav_about">About</string>
     <string name="home_title">AviumTool</string>
-    <string name="home_item_system_ui_title">系统界面</string>
+
+    <string name="home_item_system_ui_title">System UI</string>
     <string name="home_item_system_ui_subtitle">com.android.systemui</string>
     <string name="system_ui_title">SystemUI</string>
-    <string name="system_ui_warning_title">系统界面</string>
-    <string name="system_ui_warning_subtitle">注：启用可能会影响系统稳定性谨慎开启</string>
-    <string name="system_ui_toggle_modern_clock">摩登时钟以通知样式</string>
-    <string name="about_title">关于</string>
-    <string name="about_place">这里是关于页面</string>
-    <string name="home_item_battery_title">电池</string>
+    <string name="system_ui_warning_title">System UI</string>
+    <string name="system_ui_warning_subtitle">Note: Enabling this may affect system stability. Proceed with caution.</string>
+    <string name="system_ui_toggle_modern_clock">Modern clock in notification style</string>
+
+    <string name="about_title">About</string>
+    <string name="about_place">This is the About page</string>
+
+    <string name="home_item_battery_title">Battery</string>
     <string name="home_item_battery_subtitle">com.meizu.battery</string>
-    <string name="battery_title">电池</string>
-    <string name="battery_switch">电池寿命百分比显示</string>
-    <string name="package_title">应用包安装程序</string>
-    <string name="home_item_package_title">应用包安装程序</string>
+    <string name="battery_title">Battery</string>
+    <string name="battery_switch">Show battery health as a percentage</string>
+
+    <string name="package_title">Package Installer</string>
+    <string name="home_item_package_title">Package Installer</string>
     <string name="home_item_package_subtitle">com.android.packageinstaller</string>
-    <string name="package_switch">跳过安全检查</string>
-    <string name="input_unlock_5k_switch">解锁粘贴板5000字数限制</string>
-    <string name="input_unlock_150_switch">解锁剪切板150条复制限制</string>
-    <string name="input_title">输入法</string>
-    <string name="home_item_input_title">魅族搜狗输入法</string>
+    <string name="package_switch">Skip security checks</string>
+
+    <string name="input_unlock_5k_switch">Remove 5,000-character clipboard limit</string>
+    <string name="input_unlock_150_switch">Remove 150-item copy history limit</string>
+    <string name="input_title">Input Method</string>
+    <string name="home_item_input_title">Meizu Sogou Input</string>
     <string name="home_item_input_subtitle">com.soho.inputmethod.sougou.meizu</string>
-    <string name="alive_wallpaper_switch">用液态玻璃效果替换波浪纹理效果</string>
-    <string name="alivewallpaper_title">Alive壁纸</string>
-    <string name="home_item_alivewallpaper_title">Alive壁纸</string>
+
+    <string name="alive_wallpaper_switch">Replace wave texture with liquid glass effect</string>
+    <string name="alivewallpaper_title">Alive Wallpaper</string>
+    <string name="home_item_alivewallpaper_title">Alive Wallpaper</string>
     <string name="home_item_alivewallapaper_subtitle">com.flyme.alivewallpaper</string>
-    <string name="sysui_editor_switch">锁屏小组件数量限制解锁</string>
-    <string name="sysui_editor_aod_switch">解锁full aod样式</string>
-    <string name="sysuieditor_title">外观编辑器</string>
-    <string name="home_item_sysuieditor_title">外观编辑器</string>
+
+    <string name="sysui_editor_switch">Unlock limit on number of lock screen widgets</string>
+    <string name="sysui_editor_aod_switch">Enable full AOD styles</string>
+    <string name="sysuieditor_title">Style Editor</string>
+    <string name="home_item_sysuieditor_title">Style Editor</string>
     <string name="home_item_sysuieditor_subtitle">com.flyme.systemuieditor</string>
-    <string name="wearther_ad_switch">关闭天气广告</string>
-    <string name="clandar_ad_switch">关闭日历广告</string>
-    <string name="ad_title">Flyme系统广告</string>
-    <string name="fkad">受死吧广告</string>
-    <string name="home_item_fkad_title">Flyme系统广告</string>
-    <string name="home_item_ad_subtitle">There is nobody like them.</string>
+
+    <string name="wearther_ad_switch">Disable ads in Weather app</string>
+    <string name="clandar_ad_switch">Disable ads in Calendar app</string>
+    <string name="ad_title">Flyme System Ads</string>
+    <string name="fkad">Die, ads</string>
+    <string name="home_item_fkad_title">Flyme System Ads</string>
+    <string name="home_item_ad_subtitle" translatable="false">There is nobody like them.</string>
 </resources>
