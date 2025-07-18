@@ -35,12 +35,16 @@ android {
     androidResources {
         additionalParameters += arrayOf("--allow-reserved-package-id", "--package-id", "0x64")
     }
-    kotlinOptions {
-        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
-        freeCompilerArgs = listOf(
-            "-Xno-param-assertions", "-Xno-call-assertions", "-Xno-receiver-assertions"
-        )
+
+    kotlin {
+        compilerOptions {
+            jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+            freeCompilerArgs = listOf(
+                "-Xno-param-assertions", "-Xno-call-assertions", "-Xno-receiver-assertions"
+            )
+        }
     }
+
     buildFeatures {
         compose = true
         buildConfig = true
