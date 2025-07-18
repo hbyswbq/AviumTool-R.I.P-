@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">AviumTool</string>
-    <string name="xposed_description">I D K !!!!!!!!!</string>
+    <string name="xposed_description" translatable="false">Make Flyme Great SOON OR LATER!!!!</string>
     
     
     <string name="nav_home">Home</string>

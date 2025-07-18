@@ -1,6 +1,4 @@
 <resources>
-    <string name="xposed_description">不知道</string>
-
     <string name="nav_home">主页</string>
     <string name="nav_about">关于</string>
     <string name="home_title">AviumTool</string>

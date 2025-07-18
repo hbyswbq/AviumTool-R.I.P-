@@ -1,0 +1,71 @@
+name: Android CI
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: 拉取仓库代码
+        run: |
+          GITHUB_SHA=${{ github.sha }}
+          GITHUB_CI_COMMIT_ID=${GITHUB_SHA:0:7}
+          echo "GITHUB_CI_COMMIT_ID=$GITHUB_CI_COMMIT_ID" >> $GITHUB_ENV
+
+      - name: 安装Java环境
+        uses: actions/setup-java@v4
+        with:
+          java-version: '19'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: 配置Aosp-android-jar
+        run: |
+          curl -L -O https://github.com/Reginer/aosp-android-jar/raw/refs/heads/main/android-35/android.jar
+          mv android.jar /usr/local/lib/android/sdk/platforms/android-35/android.jar
+
+      - name: 缓存Gradle依赖
+        uses: actions/cache@v4.2.3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-deps-${{ hashFiles('**/build.gradle.kts') }}
+          restore-keys: gradle-deps
+
+      - name: 准备签名文件
+        run: echo ${{ secrets.SIGNING_KEY }} | base64 -d > keystore.jks
+
+      - name: 编译 AviumTool Debug版本
+        run: bash ./gradlew assembleDebug
+        env:
+          KEYSTORE_PATH: "../keystore.jks"
+          KEYSTORE_PASS: ${{ secrets.KEY_STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+
+      - name: 上传 AviumTool Debug版本
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: AviumTool-debug-${{ github.event.head_commit.id }}
+          path: "app/build/outputs/apk/debug/*.apk"
+        continue-on-error: true
+
+      - name: 编译 AviumTool Release版本
+        run: bash ./gradlew assembleRelease
+        env:
+          KEYSTORE_PATH: "../keystore.jks"
+          KEYSTORE_PASS: ${{ secrets.KEY_STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+
+      - name: 上传 AviumTool Release版本
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: AviumTool-release-${{ github.event.head_commit.id }}
+          path: "app/build/outputs/apk/release/*.apk"
+        continue-on-error: true
