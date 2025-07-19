@@ -21,14 +21,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import org.avium.aviumtool.R
+import org.avium.aviumtool.ui.SettingsViewModel
 import org.avium.aviumtool.ui.components.SettingsCard
 import org.avium.aviumtool.ui.screens.systemui.SettingsToggleItem
 
 @Composable
-fun FKADScreen() {
-    var weatherEnabled by remember { mutableStateOf(false) }
-    var calendarEnabled by remember { mutableStateOf(false) }
+fun FKADScreen(viewModel: SettingsViewModel = viewModel()) {
+    val weatherEnabled by viewModel.adWeatherEnable.collectAsStateWithLifecycle()
+    val calendarEnabled by viewModel.adDayEnable.collectAsStateWithLifecycle()
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -45,12 +48,12 @@ fun FKADScreen() {
                 SettingsToggleItem(
                     title = stringResource(id = R.string.wearther_ad_switch),
                     checked = weatherEnabled,
-                    onCheckedChange = { weatherEnabled = it }
+                    onCheckedChange = { viewModel.setAdWeatherEnabled(it) }
                 )
                 SettingsToggleItem(
                     title = stringResource(id = R.string.clandar_ad_switch),
                     checked = calendarEnabled,
-                    onCheckedChange = { calendarEnabled = it }
+                    onCheckedChange = { viewModel.setAdDayEnabled(it) }
                 )
 
             }

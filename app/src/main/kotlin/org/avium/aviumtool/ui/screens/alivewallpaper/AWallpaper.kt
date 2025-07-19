@@ -22,13 +22,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import org.avium.aviumtool.R
+import org.avium.aviumtool.ui.SettingsViewModel
 import org.avium.aviumtool.ui.components.SettingsCard
 import org.avium.aviumtool.ui.screens.systemui.SettingsToggleItem
 
 @Composable
-fun AWallpaperScreen() {
-    var rdGlassEnabled by remember { mutableStateOf(false) }
+fun AWallpaperScreen(viewModel: SettingsViewModel = viewModel()) {
+    val rdGlassEnabled by viewModel.aWallpaperEnable.collectAsStateWithLifecycle()
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -46,7 +49,7 @@ fun AWallpaperScreen() {
                 SettingsToggleItem(
                     title = stringResource(id = R.string.alive_wallpaper_switch),
                     checked = rdGlassEnabled,
-                    onCheckedChange = { rdGlassEnabled = it }
+                    onCheckedChange = { viewModel.setAWallpaperEnabled(it) }
                 )
 
             }

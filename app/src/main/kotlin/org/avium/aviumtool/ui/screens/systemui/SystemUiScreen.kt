@@ -11,12 +11,18 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import org.avium.aviumtool.R
+import org.avium.aviumtool.ui.SettingsViewModel
 import org.avium.aviumtool.ui.components.SettingsCard
 
+
 @Composable
-fun SystemUiScreen() {
-    var modernClockEnabled by remember { mutableStateOf(false) }
+fun SystemUiScreen(
+    viewModel: SettingsViewModel = viewModel()
+) {
+    val modernClockEnabled by viewModel.modernClockEnabled.collectAsStateWithLifecycle()
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -28,13 +34,12 @@ fun SystemUiScreen() {
                 HeaderSection()
             }
         }
-
         item {
             SettingsCard {
                 SettingsToggleItem(
                     title = stringResource(id = R.string.system_ui_toggle_modern_clock),
                     checked = modernClockEnabled,
-                    onCheckedChange = { modernClockEnabled = it }
+                    onCheckedChange = { viewModel.setModernClockEnabled(it) }
                 )
             }
         }

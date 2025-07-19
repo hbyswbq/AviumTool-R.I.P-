@@ -100,4 +100,8 @@ dependencies {
     compileOnly(libs.xposed.api)
     ksp(libs.yukihookapi.ksp.xposed)
     implementation(libs.coil.compose)
+
+    implementation("androidx.datastore:datastore-preferences:1.1.7")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.2")
 }

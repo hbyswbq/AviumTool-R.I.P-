@@ -22,14 +22,18 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import org.avium.aviumtool.R
+import org.avium.aviumtool.ui.SettingsViewModel
 import org.avium.aviumtool.ui.components.SettingsCard
 import org.avium.aviumtool.ui.screens.systemui.SettingsToggleItem
 
 @Composable
-fun InputScreen() {
-    var input5kEnabled by remember { mutableStateOf(false) }
-    var input150Enabled by remember { mutableStateOf(false) }
+fun InputScreen(viewModel: SettingsViewModel = viewModel()) {
+
+    val input5kEnabled by viewModel.inputMethod5k.collectAsStateWithLifecycle()
+    val input150Enabled by viewModel.inputMethod150.collectAsStateWithLifecycle()
 
 
     LazyColumn(
@@ -47,12 +51,12 @@ fun InputScreen() {
                 SettingsToggleItem(
                     title = stringResource(id = R.string.input_unlock_5k_switch),
                     checked = input5kEnabled,
-                    onCheckedChange = { input5kEnabled = it }
+                    onCheckedChange = { viewModel.setInput5kEnabled(it) }
                 )
                 SettingsToggleItem(
                     title = stringResource(id = R.string.input_unlock_150_switch),
                     checked = input150Enabled,
-                    onCheckedChange = { input150Enabled = it }
+                    onCheckedChange = { viewModel.setInput150Enabled(it) }
                 )
 
             }

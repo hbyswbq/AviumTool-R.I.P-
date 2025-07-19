@@ -21,14 +21,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import org.avium.aviumtool.R
+import org.avium.aviumtool.ui.SettingsViewModel
 import org.avium.aviumtool.ui.components.SettingsCard
 import org.avium.aviumtool.ui.screens.systemui.SettingsToggleItem
 
 @Composable
-fun SysyUIEditorScreen() {
-    var widgetEnabled by remember { mutableStateOf(false) }
-    var aodEnabled by remember { mutableStateOf(false) }
+fun SysyUIEditorScreen(viewModel: SettingsViewModel = viewModel()) {
+    val widgetEnabled by viewModel.sysuiWidgetEnable.collectAsStateWithLifecycle()
+    val aodEnabled by viewModel.sysuiAodEnable.collectAsStateWithLifecycle()
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -45,12 +48,12 @@ fun SysyUIEditorScreen() {
                 SettingsToggleItem(
                     title = stringResource(id = R.string.sysui_editor_switch),
                     checked = widgetEnabled,
-                    onCheckedChange = { widgetEnabled = it }
+                    onCheckedChange = { viewModel.setSysUIWidgetEditorEnabled(it) }
                 )
                 SettingsToggleItem(
                     title = stringResource(id = R.string.sysui_editor_aod_switch),
                     checked = aodEnabled,
-                    onCheckedChange = { aodEnabled = it }
+                    onCheckedChange = { viewModel.setSysUIAodEditorEnabled(it) }
                 )
 
             }

@@ -22,37 +22,43 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import org.avium.aviumtool.R
+import org.avium.aviumtool.ui.SettingsViewModel
 import org.avium.aviumtool.ui.components.SettingsCard
 import org.avium.aviumtool.ui.screens.systemui.SettingsToggleItem
 
 @Composable
-fun BatteryScreen() {
-    var batteryLifeEnabled by remember { mutableStateOf(false) }
-
-    LazyColumn(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-        contentPadding = PaddingValues(vertical = 16.dp)
+fun BatteryScreen(
+    viewModel: SettingsViewModel = viewModel()
     ) {
-        item {
-            SettingsCard {
-                HeaderSection()
+        val batteryLifeEnabled by viewModel.batteryLifePanEnabled.collectAsStateWithLifecycle()
+
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            contentPadding = PaddingValues(vertical = 16.dp)
+        ) {
+            item {
+                SettingsCard {
+                    HeaderSection()
+                }
             }
-        }
-        item {
-            SettingsCard {
+            item {
+                SettingsCard {
 
-                SettingsToggleItem(
-                    title = stringResource(id = R.string.battery_switch),
-                    checked = batteryLifeEnabled,
-                    onCheckedChange = { batteryLifeEnabled = it }
-                )
+                    SettingsToggleItem(
+                        title = stringResource(id = R.string.battery_switch),
+                        checked = batteryLifeEnabled,
+                        onCheckedChange = { viewModel.setBatterySwitch1Enabled(it) }
+                    )
 
+                }
             }
         }
     }
-}
+
 @Composable
 private fun HeaderSection() {
     Column(

@@ -22,13 +22,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import org.avium.aviumtool.R
+import org.avium.aviumtool.ui.SettingsViewModel
 import org.avium.aviumtool.ui.components.SettingsCard
 import org.avium.aviumtool.ui.screens.systemui.SettingsToggleItem
 
 @Composable
-fun PackagesScreen() {
-    var packagesEnabled by remember { mutableStateOf(false) }
+fun PackagesScreen(viewModel: SettingsViewModel = viewModel()) {
+    val packagesEnabled by viewModel.packageEnabled.collectAsStateWithLifecycle()
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -45,7 +48,7 @@ fun PackagesScreen() {
                 SettingsToggleItem(
                     title = stringResource(id = R.string.package_switch),
                     checked = packagesEnabled,
-                    onCheckedChange = { packagesEnabled = it }
+                    onCheckedChange = { viewModel.setPackageEnabled(it) }
                 )
 
             }
