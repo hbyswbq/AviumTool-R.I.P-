@@ -37,6 +37,7 @@ fun MainScreen() {
         Screen.SysUIEditor.route -> Screen.SysUIEditor
         Screen.FKAD.route -> Screen.FKAD
         Screen.DepWallpaper.route -> Screen.DepWallpaper
+        Screen.Prop.route -> Screen.Prop
         else -> Screen.Home // 默认
     }
 

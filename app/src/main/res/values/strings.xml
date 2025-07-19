@@ -83,4 +83,41 @@
     <string name="dialog_non_flyme_message">Some features may not work properly</string>
     <string name="dialog_action_exit">Exit</string>
     <string name="dialog_action_ignore">Ignore</string>
+
+    <string name="prop_title">System Properties</string>
+    <string name="home_item_prop_title">System Properties</string>
+    <string name="home_item_prop_subtitle">Customize system settings</string>
+
+    <string name="prop_title_alive_wallpaper_conf">Alive Wallpaper</string>
+    <string name="prop_title_video_wallpaper_conf">Video Wallpaper</string>
+    <string name="prop_title_gamemode_aiuhd_conf">Game Mode AI Ultra HD</string>
+    <string name="prop_title_smooth_round_corner_conf">Smooth Rounded Corners</string>
+    <string name="prop_title_launcher_blur_conf">Launcher Background Blur</string>
+    <string name="prop_title_launcher_recent_blur_conf">Recent Tasks Background Blur</string>
+    <string name="prop_title_launcher_aisearch_blur_conf">Home Screen Search Blur</string>
+    <string name="prop_title_assistant_blur_conf">Smart Assistant Background Blur</string>
+    <string name="prop_title_systemui_notification_blur_conf">Notification Center Blur</string>
+    <string name="prop_title_systemui_panel_blur_conf">Control Panel Blur</string>
+    <string name="prop_title_systemui_control_blur_conf">Control Center Background Blur</string>
+    <string name="prop_title_systemui_media_wallpaper_conf">Media Player Wallpaper Blur</string>
+    <string name="prop_title_systemui_bouncer_blur_conf">Lock Screen Password Blur</string>
+    <string name="prop_title_systemuieditor_blur_conf">System UI Editor Blur</string>
+    <string name="prop_title_windowmode_blur_conf">Floating Window Background Blur</string>
+    <string name="prop_title_gamemode_notification_blur_conf">Game Mode Notification Blur</string>
+    <string name="prop_title_onehanded_wallpaper_background_blur_conf">One-Handed Mode Background Blur</string>
+    <string name="prop_title_launcher_folder_anim_conf">Folder Open/Close Animation</string>
+    <string name="prop_title_launcher_unlockanim_conf">Unlock Animation</string>
+    <string name="prop_title_launcher_app_opening_anim_conf">App Launch Animation</string>
+    <string name="prop_title_launcher_app_closing_anim_conf">App Close Animation</string>
+    <string name="prop_title_launcher_capsule_anim_conf">Capsule Animation</string>
+    <string name="prop_title_launcher_widget_opening_anim_conf">Widget Open Animation</string>
+    <string name="prop_title_windowmode_anim_conf">Floating Window Animation</string>
+    <string name="prop_title_wallpaper_scale_anim_conf">Wallpaper Scale Animation</string>
+    <string name="prop_title_systemui_control_anim_conf">Control Center Animation</string>
+    <string name="prop_title_systemui_notification_launch_anim_conf">Notification Launch Animation</string>
+    <string name="prop_title_systemui_screenshot_anim_conf">Screenshot Animation</string>
+    <string name="prop_title_systemui_wakeup_anim_conf">Wake Screen Animation</string>
+    <string name="game_unlockfps_prop">Game</string>
+    <string name="prop_game_unlock_fps_switch">Unlock partial game frame rate limit of 60</string>
+    <string name="prop_item_title">System Components</string>
 </resources>

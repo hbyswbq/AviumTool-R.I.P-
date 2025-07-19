@@ -15,6 +15,7 @@ sealed class Screen(val route: String, val titleResId: Int) {
     object SysUIEditor : Screen("sysuieditor", R.string.sysuieditor_title)
     object FKAD : Screen("fkad", R.string.ad_title)
     object DepWallpaper : Screen("depthwallpaper", R.string.depthwallpaper_title)
+    object Prop : Screen("Prop", R.string.prop_title)
 }
 
 // 导航烂

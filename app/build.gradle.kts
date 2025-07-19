@@ -97,6 +97,7 @@ dependencies {
     implementation(libs.kavaref.extension)
     implementation(libs.dexkit)
     implementation(libs.play.services.basement)
+    implementation(libs.androidx.datastore.preferences.core.android)
     compileOnly(libs.xposed.api)
     ksp(libs.yukihookapi.ksp.xposed)
     implementation(libs.coil.compose)

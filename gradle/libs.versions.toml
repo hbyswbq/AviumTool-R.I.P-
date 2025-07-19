@@ -13,6 +13,7 @@ ksp = "2.2.0-2.0.2"
 kavaref-core = "1.0.1"
 kavaref-extension = "1.0.1"
 playServicesBasement = "18.7.1"
+datastorePreferencesCoreAndroid = "1.1.7"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -38,3 +39,4 @@ kavaref-core = { module = "com.highcapable.kavaref:kavaref-core", version.ref = 
 kavaref-extension = { module = "com.highcapable.kavaref:kavaref-extension", version.ref = "kavaref-extension" }
 xposed-api = { module = "de.robv.android.xposed:api", version = "82" }
 play-services-basement = { group = "com.google.android.gms", name = "play-services-basement", version.ref = "playServicesBasement" }
+androidx-datastore-preferences-core-android = { group = "androidx.datastore", name = "datastore-preferences-core-android", version.ref = "datastorePreferencesCoreAndroid" }

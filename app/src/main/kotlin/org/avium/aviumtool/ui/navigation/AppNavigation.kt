@@ -16,6 +16,7 @@ import org.avium.aviumtool.ui.screens.depthwallpaper.DepWallpaperScreen
 import org.avium.aviumtool.ui.screens.packages.PackagesScreen
 import org.avium.aviumtool.ui.screens.home.HomeScreen
 import org.avium.aviumtool.ui.screens.inputmethod.InputScreen
+import org.avium.aviumtool.ui.screens.prop.PropScreen
 import org.avium.aviumtool.ui.screens.systemui.SystemUiScreen
 import org.avium.aviumtool.ui.screens.systemuieditor.SysyUIEditorScreen
 
@@ -55,6 +56,9 @@ fun AppNavigation(navController: NavHostController, paddingValues: PaddingValues
         }
         composable(Screen.DepWallpaper.route) {
             DepWallpaperScreen(snackbarHostState = snackbarHostState)
+        }
+        composable(Screen.Prop.route) {
+            PropScreen()
         }
     }
 }

@@ -121,6 +121,14 @@ fun HomeScreen(navController: NavController) {
                     subtitle = stringResource(id = R.string.home_item_depthwallpaper_subtitle),
                     onClick = { navController.navigate(Screen.DepWallpaper.route) }
                 )
+
+                // Prop
+                SettingsRowItem(
+                    icon = painterResource(id = R.drawable.ic_home_prop),
+                    title = stringResource(id = R.string.home_item_prop_title),
+                    subtitle = stringResource(id = R.string.home_item_prop_subtitle),
+                    onClick = { navController.navigate(Screen.Prop.route) }
+                )
             }
         }
     }
