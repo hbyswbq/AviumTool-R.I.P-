@@ -45,4 +45,21 @@
     <string name="fkad">受死吧广告</string>
     <string name="wearther_ad_switch">关闭天气广告</string>
     <string name="clandar_ad_switch">关闭日历广告</string>
+
+    <string name="about_header_image_desc">关于页面头图</string>
+    <string name="about_section_device_info">设备信息</string>
+    <string name="about_info_model">手机型号</string>
+    <string name="about_info_flyme_version">Flyme版本</string>
+    <string name="about_info_android_version">Android版本</string>
+
+    <string name="about_section_contributors">贡献者</string>
+    <string name="contributor_name_1">Ruyue</string>
+    <string name="contributor_name_2">Sorrow.</string>
+    <string name="contributor_name_3">luluz.</string>
+
+    <string name="about_section_open_source">使用的项目</string>
+    <string name="open_source_project_1">YukiHookAPI</string>
+    <string name="open_source_project_2">Jetpack Compose</string>
+
+    <string name="about_info_soc_info">处理器</string>
 </resources>

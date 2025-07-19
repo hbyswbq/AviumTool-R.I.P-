@@ -1,11 +1,14 @@
 package org.avium.aviumtool
 
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -45,7 +48,10 @@ fun MainScreen() {
             )
         },
         bottomBar = {
-            NavigationBar {
+            NavigationBar(
+                modifier = Modifier.height(69.dp),
+                containerColor = MaterialTheme.colorScheme.background
+            ) {
                 bottomNavItems.forEach { item ->
                     NavigationBarItem(
                         selected = currentDestination?.hierarchy?.any { it.route == item.route } == true,
@@ -61,17 +67,15 @@ fun MainScreen() {
                         icon = {
                             Icon(
                                 painter = painterResource(id = item.iconRes),
-                                contentDescription = item.label
+                                contentDescription = item.label,
                             )
                         },
                         colors = NavigationBarItemDefaults.colors(
                             indicatorColor = Color.Transparent,
-                            selectedIconColor = Color.Black,
-                            selectedTextColor = Color.Black,
-                            unselectedIconColor = Color.Gray,
-                            unselectedTextColor = Color.Gray
+                            selectedIconColor = MaterialTheme.colorScheme.onBackground,
+                            unselectedIconColor = Color.Gray
                         ),
-                        label = { Text(item.label) }
+                        label = null
                     )
                 }
             }

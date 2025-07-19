@@ -11,6 +11,7 @@ android {
     namespace = property.project.android.namespace
     compileSdk =  property.project.android.compileSdk
 
+
     defaultConfig {
         applicationId = property.project.android.applicationId
         minSdk = property.project.android.minSdk
@@ -97,4 +98,5 @@ dependencies {
     implementation(libs.dexkit)
     compileOnly(libs.xposed.api)
     ksp(libs.yukihookapi.ksp.xposed)
+    implementation(libs.coil.compose)
 }

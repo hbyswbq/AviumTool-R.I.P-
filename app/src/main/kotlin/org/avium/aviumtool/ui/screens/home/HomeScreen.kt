@@ -50,7 +50,7 @@ fun HomeScreen(navController: NavController) {
             SettingsCard {
                 // 系统界面
                 SettingsRowItem(
-                    icon = painterResource(id = R.drawable.ic_android),
+                    icon = painterResource(id = R.drawable.ic_home_android),
                     title = stringResource(id = R.string.home_item_system_ui_title),
                     subtitle = stringResource(id = R.string.home_item_system_ui_subtitle),
                     onClick = { navController.navigate(Screen.SystemUi.route) }
@@ -64,7 +64,7 @@ fun HomeScreen(navController: NavController) {
 
                 // 电池
                 SettingsRowItem(
-                    icon = painterResource(id = R.drawable.ic_battery),
+                    icon = painterResource(id = R.drawable.ic_home_battery),
                     title = stringResource(id = R.string.home_item_battery_title),
                     subtitle = stringResource(id = R.string.home_item_battery_subtitle),
                     onClick = { navController.navigate(Screen.Battery.route) }
@@ -73,7 +73,7 @@ fun HomeScreen(navController: NavController) {
 
                 // 安装包
                 SettingsRowItem(
-                    icon = painterResource(id = R.drawable.ic_package),
+                    icon = painterResource(id = R.drawable.ic_home_package),
                     title = stringResource(id = R.string.home_item_package_title),
                     subtitle = stringResource(id = R.string.home_item_package_subtitle),
                     onClick = { navController.navigate(Screen.Package.route) }
@@ -82,7 +82,7 @@ fun HomeScreen(navController: NavController) {
 
                 // 输入法
                 SettingsRowItem(
-                    icon = painterResource(id = R.drawable.icon_keyboard),
+                    icon = painterResource(id = R.drawable.ic_home_keyboard),
                     title = stringResource(id = R.string.home_item_input_title),
                     subtitle = stringResource(id = R.string.home_item_input_subtitle),
                     onClick = { navController.navigate(Screen.Input.route) }
@@ -90,7 +90,7 @@ fun HomeScreen(navController: NavController) {
 
                 //Alive 壁纸
                 SettingsRowItem(
-                    icon = painterResource(id = R.drawable.icon_awallpaper),
+                    icon = painterResource(id = R.drawable.ic_home_wallpaper),
                     title = stringResource(id = R.string.home_item_alivewallpaper_title),
                     subtitle = stringResource(id = R.string.home_item_alivewallapaper_subtitle),
                     onClick = { navController.navigate(Screen.AliveWP.route) }
@@ -99,7 +99,7 @@ fun HomeScreen(navController: NavController) {
 
                 //外观编辑器
                 SettingsRowItem(
-                    icon = painterResource(id = R.drawable.icon_editor),
+                    icon = painterResource(id = R.drawable.ic_home_editor),
                     title = stringResource(id = R.string.home_item_sysuieditor_title),
                     subtitle = stringResource(id = R.string.home_item_sysuieditor_subtitle),
                     onClick = { navController.navigate(Screen.SysUIEditor.route) }
