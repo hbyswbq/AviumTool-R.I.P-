@@ -113,6 +113,14 @@ fun HomeScreen(navController: NavController) {
                     subtitle = stringResource(id = R.string.home_item_ad_subtitle),
                     onClick = { navController.navigate(Screen.FKAD.route) }
                 )
+
+                //景深壁纸
+                SettingsRowItem(
+                    icon = painterResource(id = R.drawable.ic_home_depthwallpaper),
+                    title = stringResource(id = R.string.home_item_depthwallpaper_title),
+                    subtitle = stringResource(id = R.string.home_item_depthwallpaper_subtitle),
+                    onClick = { navController.navigate(Screen.DepWallpaper.route) }
+                )
             }
         }
     }

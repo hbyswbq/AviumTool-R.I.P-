@@ -96,6 +96,7 @@ dependencies {
     implementation(libs.kavaref.core)
     implementation(libs.kavaref.extension)
     implementation(libs.dexkit)
+    implementation(libs.play.services.basement)
     compileOnly(libs.xposed.api)
     ksp(libs.yukihookapi.ksp.xposed)
     implementation(libs.coil.compose)

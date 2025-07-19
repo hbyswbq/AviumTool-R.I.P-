@@ -62,4 +62,16 @@
     <string name="open_source_project_2">Jetpack Compose</string>
 
     <string name="about_info_soc_info">处理器</string>
+    <string name="home_item_depthwallpaper_title">景深壁纸</string>
+    <string name="home_item_depthwallpaper_subtitle">自定义景深壁纸效果</string>
+    <string name="depthwallpaper_title">景深壁纸</string>
+
+    <string name="depthwallpaper_apply_success">应用成功</string>
+    <string name="depthwallpaper_apply_failed">应用失败</string>
+    <string name="depthwallpaper_select_wallpaper">选择主壁纸</string>
+    <string name="depthwallpaper_select_wallpaper_summary">作用于主背景</string>
+    <string name="depthwallpaper_select_mask">选择蒙版</string>
+    <string name="depthwallpaper_select_mask_summary">用于覆盖在时钟上层(需要背景透明图片)</string>
+    <string name="depthwallpaper_applying">应用中</string>
+    <string name="depthwallpaper_image_selected">已选择</string>
 </resources>

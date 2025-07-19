@@ -2,6 +2,7 @@ package org.avium.aviumtool.ui.navigation
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -11,6 +12,7 @@ import org.avium.aviumtool.ui.screens.about.AboutScreen
 import org.avium.aviumtool.ui.screens.ad.FKADScreen
 import org.avium.aviumtool.ui.screens.alivewallpaper.AWallpaperScreen
 import org.avium.aviumtool.ui.screens.battery.BatteryScreen
+import org.avium.aviumtool.ui.screens.depthwallpaper.DepWallpaperScreen
 import org.avium.aviumtool.ui.screens.packages.PackagesScreen
 import org.avium.aviumtool.ui.screens.home.HomeScreen
 import org.avium.aviumtool.ui.screens.inputmethod.InputScreen
@@ -18,7 +20,7 @@ import org.avium.aviumtool.ui.screens.systemui.SystemUiScreen
 import org.avium.aviumtool.ui.screens.systemuieditor.SysyUIEditorScreen
 
 @Composable
-fun AppNavigation(navController: NavHostController, paddingValues: PaddingValues) {
+fun AppNavigation(navController: NavHostController, paddingValues: PaddingValues, snackbarHostState: SnackbarHostState) {
     NavHost(
         navController = navController,
         startDestination = Screen.Home.route,
@@ -50,6 +52,9 @@ fun AppNavigation(navController: NavHostController, paddingValues: PaddingValues
         }
         composable(Screen.FKAD.route) {
             FKADScreen()
+        }
+        composable(Screen.DepWallpaper.route) {
+            DepWallpaperScreen(snackbarHostState = snackbarHostState)
         }
     }
 }

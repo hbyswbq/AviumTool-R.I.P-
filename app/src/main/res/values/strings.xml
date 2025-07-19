@@ -66,4 +66,16 @@
     <string name="open_source_project_1">YukiHookAPI</string>
     <string name="open_source_project_2">Jetpack Compose</string>
     <string name="about_info_soc_info">SOC</string>
+    <string name="home_item_depthwallpaper_title">DepthWallpaper</string>
+    <string name="home_item_depthwallpaper_subtitle">Custom the depthwallpaper effect</string>
+    <string name="depthwallpaper_title">DepthWallpaper</string>
+
+    <string name="depthwallpaper_apply_success">Applied successfully</string>
+    <string name="depthwallpaper_apply_failed">Failed to apply</string>
+    <string name="depthwallpaper_select_wallpaper">Select main wallpaper</string>
+    <string name="depthwallpaper_select_wallpaper_summary">Applies to main background</string>
+    <string name="depthwallpaper_select_mask">Select mask</string>
+    <string name="depthwallpaper_select_mask_summary">Overlays above clock (transparent background,plz)</string>
+    <string name="depthwallpaper_applying">Applying...</string>
+    <string name="depthwallpaper_image_selected">Selected</string>
 </resources>

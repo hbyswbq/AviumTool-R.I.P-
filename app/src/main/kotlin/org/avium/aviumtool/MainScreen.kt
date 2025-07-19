@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -23,6 +24,7 @@ fun MainScreen() {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
+    val snackbarHostState = remember { SnackbarHostState() }
 
     val currentScreen = when (currentDestination?.route) {
         Screen.Home.route -> Screen.Home
@@ -34,10 +36,12 @@ fun MainScreen() {
         Screen.AliveWP.route -> Screen.AliveWP
         Screen.SysUIEditor.route -> Screen.SysUIEditor
         Screen.FKAD.route -> Screen.FKAD
+        Screen.DepWallpaper.route -> Screen.DepWallpaper
         else -> Screen.Home // 默认
     }
 
     Scaffold(
+        snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
         topBar = {
             TopAppBar(
                 title = { Text(text = stringResource(id = currentScreen.titleResId)) },
@@ -81,6 +85,10 @@ fun MainScreen() {
             }
         }
     ) { innerPadding ->
-        AppNavigation(navController = navController, paddingValues = innerPadding)
+        AppNavigation(
+            navController = navController,
+            paddingValues = innerPadding,
+            snackbarHostState = snackbarHostState
+        )
     }
 }
