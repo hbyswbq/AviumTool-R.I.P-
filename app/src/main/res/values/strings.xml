@@ -78,4 +78,9 @@
     <string name="depthwallpaper_select_mask_summary">Overlays above clock (transparent background,plz)</string>
     <string name="depthwallpaper_applying">Applying...</string>
     <string name="depthwallpaper_image_selected">Selected</string>
+
+    <string name="dialog_non_flyme_title">Running on a non-Flyme device</string>
+    <string name="dialog_non_flyme_message">Some features may not work properly</string>
+    <string name="dialog_action_exit">Exit</string>
+    <string name="dialog_action_ignore">Ignore</string>
 </resources>

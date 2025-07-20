@@ -74,4 +74,9 @@
     <string name="depthwallpaper_select_mask_summary">用于覆盖在时钟上层(需要背景透明图片)</string>
     <string name="depthwallpaper_applying">应用中</string>
     <string name="depthwallpaper_image_selected">已选择</string>
+
+    <string name="dialog_non_flyme_title">当前不在Flyme设备运行</string>
+    <string name="dialog_non_flyme_message">部分功能无法正常使用</string>
+    <string name="dialog_action_exit">退出</string>
+    <string name="dialog_action_ignore">忽略</string>
 </resources>
