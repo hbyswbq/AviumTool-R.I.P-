@@ -1,7 +1,18 @@
 package org.avium.aviumtool
 
 import androidx.compose.foundation.layout.height
-import androidx.compose.material3.*
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -38,6 +49,7 @@ fun MainScreen() {
         Screen.FKAD.route -> Screen.FKAD
         Screen.DepWallpaper.route -> Screen.DepWallpaper
         Screen.Prop.route -> Screen.Prop
+        Screen.Launcher.route -> Screen.Launcher
         else -> Screen.Home // 默认
     }
 

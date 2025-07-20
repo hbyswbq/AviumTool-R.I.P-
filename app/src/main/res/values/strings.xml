@@ -120,4 +120,8 @@
     <string name="game_unlockfps_prop">Game</string>
     <string name="prop_game_unlock_fps_switch">Unlock partial game frame rate limit of 60</string>
     <string name="prop_item_title">System Components</string>
+    <string name="launcher_blur_switch">Full-layer Blur Effect</string>
+    <string name="launcher_title">System Launcher</string>
+    <string name="home_item_launcher_title">System Launcher</string>
+    <string name="home_item_laucnher_subtitle">com.meizu.flyme.launcher</string>
 </resources>

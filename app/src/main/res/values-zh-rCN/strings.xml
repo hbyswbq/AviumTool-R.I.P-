@@ -115,4 +115,8 @@
     <string name="prop_title_systemui_wakeup_anim_conf">亮屏动画</string>
     <string name="prop_game_unlock_fps_switch">解锁部分游戏帧率上限60</string>
     <string name="prop_item_title">系统组件</string>
+    <string name="launcher_blur_switch">全层级模糊效果</string>
+    <string name="launcher_title">系统桌面</string>
+    <string name="home_item_launcher_title">系统桌面</string>
+    <string name="home_item_laucnher_subtitle">com.meizu.flyme.launcher</string>
 </resources>

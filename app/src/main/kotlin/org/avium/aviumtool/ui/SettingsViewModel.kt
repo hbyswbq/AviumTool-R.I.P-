@@ -58,6 +58,11 @@ class SettingsViewModel(application: Application) : AndroidViewModel(application
         return flow.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), false)
     }
 
+    // Launcher
+    val launcherBlurEnable: StateFlow<Boolean> = settingsRepository.launcherBlurFlow
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), false)
+
+
     val aliveWallpaperConf = getPropStateFlow(settingsRepository.aliveWallpaperConfFlow)
     val videoWallpaperConf = getPropStateFlow(settingsRepository.videoWallpaperConfFlow)
     val gamemodeAiuhdConf = getPropStateFlow(settingsRepository.gamemodeAiuhdConfFlow)
@@ -164,6 +169,11 @@ class SettingsViewModel(application: Application) : AndroidViewModel(application
 
     fun setAdDayEnabled(enabled: Boolean) {
         updateBooleanSetting(SettingsRepository.Keys.AD_DAY, enabled)
+    }
+
+    // Launcher
+    fun setLauncherBlurEnabled(enabled: Boolean) {
+        updateBooleanSetting(SettingsRepository.Keys.LAUNCHER_BLUR, enabled)
     }
 
 }

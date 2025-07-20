@@ -16,6 +16,7 @@ sealed class Screen(val route: String, val titleResId: Int) {
     object FKAD : Screen("fkad", R.string.ad_title)
     object DepWallpaper : Screen("depthwallpaper", R.string.depthwallpaper_title)
     object Prop : Screen("Prop", R.string.prop_title)
+    object Launcher : Screen("launcher", R.string.launcher_title)
 }
 
 // 导航烂

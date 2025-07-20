@@ -1,12 +1,14 @@
 package org.avium.aviumtool.ui.screens.home
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Card
-import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -68,6 +70,14 @@ fun HomeScreen(navController: NavController) {
                     title = stringResource(id = R.string.home_item_battery_title),
                     subtitle = stringResource(id = R.string.home_item_battery_subtitle),
                     onClick = { navController.navigate(Screen.Battery.route) }
+                )
+
+                // 系统桌面
+                SettingsRowItem(
+                    icon = painterResource(id = R.drawable.ic_home_launcher),
+                    title = stringResource(id = R.string.home_item_launcher_title),
+                    subtitle = stringResource(id = R.string.home_item_laucnher_subtitle),
+                    onClick = { navController.navigate(Screen.Launcher.route) }
                 )
 
 

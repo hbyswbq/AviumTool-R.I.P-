@@ -1,6 +1,5 @@
 package org.avium.aviumtool.data
 
-import android.R
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -56,6 +55,7 @@ class SettingsRepository(private val context: Context) {
         val SYSTEMUI_SCREENSHOT_ANIM_CONF = booleanPreferencesKey("persist.sys.systemui.screenshot.anim.conf")
         val SYSTEMUI_WAKEUP_ANIM_CONF = booleanPreferencesKey("persist.sys.systemui.wakeup.anim.conf")
         val GAME_UNLOCK_FPS = booleanPreferencesKey("ro.surface_flinger.game_default_frame_rate_override")
+        val LAUNCHER_BLUR = booleanPreferencesKey("launcher_blur")
 
     }
 
@@ -83,6 +83,7 @@ class SettingsRepository(private val context: Context) {
     val sysuiAodEditorFlow: Flow<Boolean> = getBooleanFlow(Keys.AOD_ENABLE, false)
     val adWeatherFlow: Flow<Boolean> = getBooleanFlow(Keys.AD_WEATHER, false)
     val adDayFlow: Flow<Boolean> = getBooleanFlow(Keys.AD_DAY, false)
+    val launcherBlurFlow: Flow<Boolean> = getBooleanFlow(Keys.LAUNCHER_BLUR, false)
 //Prop
     val aliveWallpaperConfFlow: Flow<Boolean> = getBooleanFlow(Keys.ALIVE_WALLPAPER_CONF, false)
     val videoWallpaperConfFlow: Flow<Boolean> = getBooleanFlow(Keys.VIDEO_WALLPAPER_CONF, false)
