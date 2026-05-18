@@ -1,6 +1,6 @@
 name: Android CI
 
-on:
+于:
   workflow_dispatch:
   push:
 
