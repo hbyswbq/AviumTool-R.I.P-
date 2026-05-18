@@ -1,4 +1,4 @@
-name: AviumTool CI (Fixed)
+name: AviumTool CI (Fixed Signing)
 on:
   push:
     branches: [ "main" ]
@@ -19,19 +19,19 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Fix signing error (remove keystore and disable auto-sign)
+    - name: Fix keystore error and add mirror
       run: |
-        # 删除有问题的密钥库
+        # 删除有问题的签名密钥库
         rm -f keystore.jks
         
-        # 自动修改build.gradle.kts，移除签名配置
+        # 移除build.gradle.kts中的强制签名配置
         sed -i '/signingConfigs {/,/}/d' app/build.gradle.kts
         sed -i 's/signingConfig signingConfigs.release//g' app/build.gradle.kts
         
-        # 添加阿里云镜像加速
-        cat > settings.gradle.kts <<EOF
+        # 写入阿里云镜像配置（EOF必须顶格！）
+        cat > settings.gradle.kts <<'EOF'
 pluginManagement {
-    仓库 {
+    repositories {
         maven("https://maven.aliyun.com/repository/google")
         maven("https://maven.aliyun.com/repository/gradle-plugin")
         maven("https://maven.aliyun.com/repository/public")
@@ -68,9 +68,9 @@ EOF
     - name: Build Debug APK
       run: ./gradlew assembleDebug
 
-    - name: Upload APK
+    - name: Upload APK artifact
       uses: actions/upload-artifact@v4
       with:
-        name: AviumTool-Debug-Fixed
+        name: AviumTool-Debug
         path: app/build/outputs/apk/debug/app-debug.apk
         retention-days: 90
