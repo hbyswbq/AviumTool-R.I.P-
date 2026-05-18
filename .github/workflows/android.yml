@@ -1,4 +1,4 @@
-name: AviumTool CI (Fixed Signing)
+name: AviumTool CI Fixed
 on:
   push:
     branches: [ "main" ]
@@ -19,9 +19,9 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Fix keystore error and add mirror
+    - name: Fix signing error and add mirror
       run: |
-        # 删除有问题的签名密钥库
+        # 删除有问题的密钥库
         rm -f keystore.jks
         
         # 移除build.gradle.kts中的强制签名配置
@@ -31,7 +31,7 @@ jobs:
         # 写入阿里云镜像配置（EOF必须顶格！）
         cat > settings.gradle.kts <<'EOF'
 pluginManagement {
-    repositories {
+    仓库 {
         maven("https://maven.aliyun.com/repository/google")
         maven("https://maven.aliyun.com/repository/gradle-plugin")
         maven("https://maven.aliyun.com/repository/public")
@@ -71,6 +71,6 @@ EOF
     - name: Upload APK artifact
       uses: actions/upload-artifact@v4
       with:
-        name: AviumTool-Debug
+        name: AviumTool-Debug-Final
         path: app/build/outputs/apk/debug/app-debug.apk
         retention-days: 90
