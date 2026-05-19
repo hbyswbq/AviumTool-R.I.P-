@@ -8,30 +8,52 @@ plugins {
 }
 
 android {
-    namespace = property.project.android.namespace
-    compileSdk =  property.project.android.compileSdk
-
+    namespace = property.project.android.namespace.toString()
+    compileSdk = property.project.android.compileSdk.toString().toInt()
 
     defaultConfig {
-        applicationId = property.project.android.applicationId
-        minSdk = property.project.android.minSdk
-        targetSdk = property.project.android.targetSdk
-        versionCode = property.project.android.versionCode
-        versionName = property.project.android.versionName
+        applicationId = property.project.android.applicationId.toString()
+        minSdk = property.project.android.minSdk.toString().toInt()
+        targetSdk = property.project.android.targetSdk.toString().toInt()
+        versionCode = property.project.android.versionCode.toString().toInt()
+        versionName = property.project.android.versionName.toString()
         ndk {
             // noinspection ChromeOsAbiSupport
             abiFilters += "arm64-v8a"
         }
     }
 
+    // 先定义基础buildTypes，确保debug始终使用默认签名
+    buildTypes {
+        debug {
+            // 强制使用Android SDK默认debug签名，彻底绕开密钥库问题
+            signingConfig = null
+            isMinifyEnabled = false
+            isDebuggable = true
+        }
 
+        release {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
+                "proguard-log.pro"
+            )
+            // 默认不签名，有keystore时会被覆盖
+            signingConfig = null
+        }
+    }
+
+    // 仅当存在keystore配置时，才创建release签名并覆盖release构建
     val properties = Properties()
     runCatching { properties.load(project.rootProject.file("local.properties").inputStream()) }
     val keystorePath = properties.getProperty("KEYSTORE_PATH") ?: System.getenv("KEYSTORE_PATH")
     val keystorePwd = properties.getProperty("KEYSTORE_PASS") ?: System.getenv("KEYSTORE_PASS")
     val alias = properties.getProperty("KEY_ALIAS") ?: System.getenv("KEY_ALIAS")
     val pwd = properties.getProperty("KEY_PASSWORD") ?: System.getenv("KEY_PASSWORD")
-    if (keystorePath != null) {
+    
+    if (keystorePath != null && file(keystorePath).exists()) {
         signingConfigs {
             create("release") {
                 storeFile = file(keystorePath)
@@ -39,24 +61,18 @@ android {
                 keyAlias = alias
                 keyPassword = pwd
                 enableV3Signing = true
+                enableV4Signing = true // 新增：支持Android 11+的V4签名
             }
         }
+        
+        // 仅覆盖release构建的签名，debug保持默认
         buildTypes {
             release {
-                isMinifyEnabled = true
-                isShrinkResources = true
-                proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro",
-                    "proguard-log.pro"
-                )
-                signingConfig = signingConfigs.getByName("release")
-            }
-            debug {
                 signingConfig = signingConfigs.getByName("release")
             }
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
